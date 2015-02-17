@@ -12,10 +12,12 @@ public class TekenApp extends Application {
 	public void start(Stage primaryStage) {
 
 		BorderPane root = new BorderPane();
-		Scene scene = new Scene(root, 400, 350);
+		Scene scene = new Scene(root, 440, 350);
+
+		tc = new TekenCanvas(430, 300);
 
 		root.setCenter(tc);
-
+		scene.setRoot(root);
 		primaryStage.setTitle("Paint");
 		primaryStage.setScene(scene);
 		primaryStage.show();
