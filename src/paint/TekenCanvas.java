@@ -12,18 +12,18 @@ public class TekenCanvas extends Canvas {
 	public TekenCanvas(int breedte, int hoogte) {
 		super(breedte, hoogte);
 		
-		//this.setOnMouseDragged(e -> randomDraw(e));
-		this.setOnMouseDragged(e -> drawRect(e));
+		this.setOnMouseDragged(e -> randomDraw(e));
+		//this.setOnMouseDragged(e -> drawRect(e));
 
 	}
 	
 	//gewoon zelf tekenen, geen figuren.
-/*	public void randomDraw(MouseEvent e) {
-		gc.getPixelWriter().setColor((int)e.getX(),(int)e.getY(), Color.BLACK);
-		gc.getPixelWriter().setColor((int)e.getX(),(int)e.getY() + 1, Color.BLACK);
-		gc.getPixelWriter().setColor((int)e.getX(),(int)e.getY() + 2, Color.BLACK);
+	public void randomDraw(MouseEvent e) {
+		gc.getPixelWriter().setColor((int)e.getX(),(int)e.getY(), BedienPaneel.getColor());
+		gc.getPixelWriter().setColor((int)e.getX(),(int)e.getY() + 1, BedienPaneel.getColor());
+		gc.getPixelWriter().setColor((int)e.getX(),(int)e.getY() + 2, BedienPaneel.getColor());
 		
-	} */
+	} 
 	
 		//Een vierkant tekenen
 	public void drawRect(MouseEvent e){
