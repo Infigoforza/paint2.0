@@ -16,20 +16,18 @@ public class TekenCanvas extends Canvas {
 
 	// gewoon zelf tekenen, geen figuren.
 	public void randomDraw(MouseEvent e) {
-		if(e.getEventType().equals(MouseEvent.MOUSE_CLICKED) ){
-			gc.setStroke(BedienPaneel.getColor()); 
+		if (e.getEventType().equals(MouseEvent.MOUSE_CLICKED)) {
+			gc.setStroke(BedienPaneel.getColor());
 			gc.beginPath();
-					
-			
 		}
-		
-		if(e.getEventType().equals(MouseEvent.MOUSE_DRAGGED)){
+
+		if (e.getEventType().equals(MouseEvent.MOUSE_DRAGGED)) {
 			gc.setStroke(BedienPaneel.getColor());
 			gc.lineTo(e.getX(), e.getY());
 			gc.stroke();
 		}
-		
-		if(e.getEventType().equals(MouseEvent.MOUSE_RELEASED)){
+
+		if (e.getEventType().equals(MouseEvent.MOUSE_RELEASED)) {
 			gc.closePath();
 		}
 	}
