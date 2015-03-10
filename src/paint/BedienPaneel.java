@@ -22,15 +22,17 @@ public class BedienPaneel extends HBox {
 	private static ColorPicker cp;
 	private static ToggleGroup group;
 	private static Color col;
+	private Rectangle[] rec;
+	Rectangle r = new Rectangle();
 
 	public BedienPaneel() {
 		HBox h1 = new HBox();
 		HBox h2 = new HBox();
 		VBox v1 = new VBox();
 		VBox v2 = new VBox();
-
+		rec = new Rectangle[10];
 		TilePane tile = new TilePane(7,10);
-		Rectangle[] rec = new Rectangle[10];
+		
 
 		tile.setPadding(new Insets(10, 10, 10, 10));
 
@@ -70,7 +72,6 @@ public class BedienPaneel extends HBox {
 		cp = new ColorPicker();
 		cp.setStyle("-fx-indent:10px;");
 		// cp.setWidth(100);
-		Rectangle r = new Rectangle();
 		r.setWidth(100);
 		r.setHeight(30);
 		r.setFill(cp.getValue());
@@ -96,6 +97,9 @@ public class BedienPaneel extends HBox {
 		return group.getSelectedToggle();
 	}
 	public void getRekt(javafx.scene.input.MouseEvent e){
+		Rectangle r1 = (Rectangle)e.getSource();
+		cp.setValue((Color) r1.getFill());
+		r.setFill((Color) r1.getFill());
 		
 	}
 }
