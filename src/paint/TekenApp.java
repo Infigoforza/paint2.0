@@ -1,5 +1,6 @@
 package paint;
 
+
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
@@ -10,13 +11,13 @@ public class TekenApp extends Application {
 
 	@Override
 	public void start(Stage primaryStage) {
-
+		BedienPaneel bp = new BedienPaneel();
 		BorderPane root = new BorderPane();
 		Scene scene = new Scene(root, 440, 350);
-
 		tc = new TekenCanvas(430, 300);
-
 		root.setCenter(tc);
+		tc.setStyle("-fx-border-color: black;");
+		root.setTop(bp);
 		scene.setRoot(root);
 		primaryStage.setTitle("Paint");
 		primaryStage.setScene(scene);
@@ -26,5 +27,4 @@ public class TekenApp extends Application {
 	public static void main(String[] args) {
 		Application.launch(args);
 	}
-
 }
