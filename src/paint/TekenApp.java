@@ -4,10 +4,9 @@ import java.awt.image.RenderedImage;
 import java.io.File;
 import java.io.IOException;
 
-import javax.imageio.ImageIO;
-
 import javafx.application.Application;
 import javafx.embed.swing.SwingFXUtils;
+import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.SnapshotParameters;
@@ -16,11 +15,14 @@ import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.image.WritableImage;
-import javafx.scene.paint.Color;
+import javafx.scene.input.KeyCombination;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+
+import javax.imageio.ImageIO;
 
 public class TekenApp extends Application {
 	private TekenCanvas tc;
@@ -40,8 +42,12 @@ public class TekenApp extends Application {
 
 		// menuBestand setup
 		Menu menuBestand = new Menu("Bestand");
+		
+		
+		
 		MenuItem nieuw = new MenuItem("Niew  CTRL + N");
 		menuBestand.getItems().add(nieuw);
+		;
 
 		// Nieuw canvas
 		nieuw.setOnAction(e -> {
@@ -49,6 +55,8 @@ public class TekenApp extends Application {
 			gc.setFill(Color.TRANSPARENT);
 			gc.clearRect(0, 0, 430, 350);
 		});
+
+		nieuw.setAccelerator(KeyCombination.keyCombination("Ctrl+N"));
 
 		MenuItem opslaan = new MenuItem("Opslaan");
 		menuBestand.getItems().add(opslaan);
@@ -77,10 +85,11 @@ public class TekenApp extends Application {
 		// menuOpties setup
 		Menu menuOpties = new Menu("Opties");
 		MenuItem instellingen = new MenuItem("Instellingen");
-		
+
 		// Menu dialoog tonen
 		instellingen.setOnAction(e -> {
-			InstellingenDialoog dialog = new InstellingenDialoog(instellingenD, 200, 200);
+			InstellingenDialoog dialog = new InstellingenDialoog(instellingenD,
+					200, 200);
 		});
 		menuOpties.getItems().add(instellingen);
 
@@ -103,7 +112,8 @@ public class TekenApp extends Application {
 		Application.launch(args);
 	}
 
-	private boolean afbeeldingOpslaan(boolean dialoogAltijdTonen) throws IOException {
+	private boolean afbeeldingOpslaan(boolean dialoogAltijdTonen)
+			throws IOException {
 		if (dialoogAltijdTonen) {
 			File file = fileChooser.showSaveDialog(null);
 			if (file != null) {
