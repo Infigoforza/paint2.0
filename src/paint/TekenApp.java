@@ -19,29 +19,33 @@ public class TekenApp extends Application {
 		Scene scene = new Scene(root, 440, 350);
 		MenuBar menuBar = new MenuBar();
 		VBox topPosition = new VBox();
-		
-		
+
 		tc = new TekenCanvas(430, 300);
 		bp.setPrefSize(440, 125);
-		
-		//menuBestand setup
+
+		// menuBestand setup
 		Menu menuBestand = new Menu("Bestand");
 		MenuItem nieuw = new MenuItem("Niew  CTRL + N");
 		menuBestand.getItems().add(nieuw);
-		
-		//menuOpties setup
-		Menu menuOpties= new Menu("Opties");
-		
-		//MenuBar setup
-		menuBar.getMenus().addAll(menuBestand,menuOpties);
+
+		MenuItem opslaan = new MenuItem("Opslaan");
+		menuBestand.getItems().add(opslaan);
+
+		MenuItem opslaanAls = new MenuItem("Opslaan als");
+		menuBestand.getItems().add(opslaanAls);
+
+		// menuOpties setup
+		Menu menuOpties = new Menu("Opties");
+
+		// MenuBar setup
+		menuBar.getMenus().addAll(menuBestand, menuOpties);
 		menuBar.setPrefSize(440, 10);
-			
-		
+
 		root.setCenter(tc);
 		tc.setStyle("-fx-border-color: black;");
-		
-		topPosition.getChildren().addAll(menuBar,bp);
-		
+
+		topPosition.getChildren().addAll(menuBar, bp);
+
 		root.setTop(topPosition);
 		scene.setRoot(root);
 		primaryStage.setTitle("Paint");
