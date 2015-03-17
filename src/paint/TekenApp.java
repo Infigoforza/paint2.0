@@ -28,17 +28,19 @@ public class TekenApp extends Application {
 	private TekenCanvas tc;
 	private File huidigBestand = new File("image.png");
 	private FileChooser fileChooser = new FileChooser();
+	private int width = 430;
+	private int height = 300;
 
 	@Override
 	public void start(Stage primaryStage) {
 		BedienPaneel bp = new BedienPaneel();
 		BorderPane root = new BorderPane();
-		Scene scene = new Scene(root, 440, 350);
+		Scene scene = new Scene(root);
 		MenuBar menuBar = new MenuBar();
 		VBox topPosition = new VBox();
 		Stage instellingenD = new Stage();
-		tc = new TekenCanvas(430, 300);
-		bp.setPrefSize(440, 125);
+		tc = new TekenCanvas(width, height);
+		
 
 		// menuBestand setup
 		Menu menuBestand = new Menu("_Bestand");
@@ -46,7 +48,6 @@ public class TekenApp extends Application {
 		menuBestand.setOnAction(e -> {
 			menuBestand.show();
 		});
-
 
 		MenuItem nieuw = new MenuItem("_Niew  CTRL + N");
 		menuBestand.getItems().add(nieuw);
@@ -91,14 +92,22 @@ public class TekenApp extends Application {
 
 		// Menu dialoog tonen
 		instellingen.setOnAction(e -> {
-			InstellingenDialoog dialog = new InstellingenDialoog(instellingenD,
-					200, 200);
+			InstellingenDialoog dialog = new InstellingenDialoog(instellingenD,200, 200);
+			double h = dialog.geefHoogte();
+			double w = dialog.geefBreedte();
+			tc.setWidth(w);
+			tc.setHeight(h);
+			
+			primaryStage.sizeToScene();
+			
+			
 		});
 		menuOpties.getItems().add(instellingen);
 
 		// MenuBar setup
 		menuBar.getMenus().addAll(menuBestand, menuOpties);
-		menuBar.setPrefSize(440, 10);
+		menuBar.setPrefSize(width, 10);
+		
 
 		root.setCenter(tc);
 		tc.setStyle("-fx-border-color: black;");
@@ -130,4 +139,14 @@ public class TekenApp extends Application {
 		ImageIO.write(img2, "png", huidigBestand);
 		return true;
 	}
+	public static void setWidth(int width) {
+		width = width;
+	}
+
+	public static void setHeight(int height) {
+		height = height;
+	}
+
+
+	
 }
