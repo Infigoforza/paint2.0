@@ -61,7 +61,7 @@ public class TekenApp extends Application {
 			}
 		});
 
-		MenuItem opslaanAls = new MenuItem("Opslaan als");
+		MenuItem opslaanAls = new MenuItem("Opslaan Als");
 		menuBestand.getItems().add(opslaanAls);
 
 		// Image saver met dialog
@@ -75,6 +75,8 @@ public class TekenApp extends Application {
 
 		// menuOpties setup
 		Menu menuOpties = new Menu("Opties");
+		MenuItem instellingen = new MenuItem("Instellingen");
+		menuOpties.getItems().add(instellingen);
 
 		// MenuBar setup
 		menuBar.getMenus().addAll(menuBestand, menuOpties);
