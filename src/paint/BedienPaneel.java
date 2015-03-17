@@ -23,10 +23,10 @@ public class BedienPaneel extends HBox {
 
 	public BedienPaneel() {
 		VBox menu = new VBox();
-		HBox h1 = new HBox();
-		HBox h2 = new HBox();
-		VBox v1 = new VBox();
-		VBox v2 = new VBox();
+		HBox linkerHbox = new HBox();
+		HBox rechterHbox = new HBox();
+		VBox centerAlignVbox = new VBox();
+		VBox kleurenPaneelVbox = new VBox();
 		MenuBar menuBar = new MenuBar();
 		rec = new Rectangle[10];
 		TilePane tile = new TilePane(7,10);
@@ -74,24 +74,24 @@ public class BedienPaneel extends HBox {
 		
 		
 
-		h1.setPadding(new Insets(15, 15, 15, 12));
+		linkerHbox.setPadding(new Insets(15, 15, 15, 12));
 		cp = new ColorPicker();
 		cp.setStyle("-fx-indent:10px;");
 		// cp.setWidth(100);
 		r.setWidth(100);
 		r.setHeight(30);
 		r.setFill(cp.getValue());
-		h1.setPrefSize(50, 120);
-		h2.setPrefSize(120, 100);
-		h1.setStyle("-fx-border-color: black;");
-		h2.setStyle("-fx-border-color: black;");
-		v1.getChildren().addAll(cp, r);
-		v2.getChildren().addAll(lijnButton, rechtHButoon, circleButton, penButton);
-		h1.getChildren().addAll(v1);
+		linkerHbox.setPrefSize(50, 120);
+		rechterHbox.setPrefSize(120, 100);
+		linkerHbox.setStyle("-fx-border-color: black;");
+		rechterHbox.setStyle("-fx-border-color: black;");
+		centerAlignVbox.getChildren().addAll(cp, r);
+		kleurenPaneelVbox.getChildren().addAll(lijnButton, rechtHButoon, circleButton, penButton);
+		linkerHbox.getChildren().addAll(centerAlignVbox);
 		
-		h1.setAlignment(Pos.BOTTOM_LEFT);
-		h2.getChildren().add(v2);
-		getChildren().addAll(h1, tile, h2);
+		linkerHbox.setAlignment(Pos.BOTTOM_LEFT);
+		rechterHbox.getChildren().add(kleurenPaneelVbox);
+		getChildren().addAll(linkerHbox, tile, rechterHbox);
 
 		cp.setOnAction(e -> r.setFill(cp.getValue()));
 	}
