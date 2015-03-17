@@ -8,6 +8,7 @@ import javax.imageio.ImageIO;
 
 import javafx.application.Application;
 import javafx.embed.swing.SwingFXUtils;
+import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.SnapshotParameters;
 import javafx.scene.canvas.GraphicsContext;
@@ -76,6 +77,11 @@ public class TekenApp extends Application {
 		// menuOpties setup
 		Menu menuOpties = new Menu("Opties");
 		MenuItem instellingen = new MenuItem("Instellingen");
+		
+		// Menu dialoog tonen
+		instellingen.setOnAction(e -> {
+			InstellingenDialoog dialog = new InstellingenDialoog(primaryStage, 200, 200);
+		});
 		menuOpties.getItems().add(instellingen);
 
 		// MenuBar setup
