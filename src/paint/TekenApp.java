@@ -41,11 +41,14 @@ public class TekenApp extends Application {
 		bp.setPrefSize(440, 125);
 
 		// menuBestand setup
-		Menu menuBestand = new Menu("Bestand");
-		
-		
-		
-		MenuItem nieuw = new MenuItem("Niew  CTRL + N");
+		Menu menuBestand = new Menu("_Bestand");
+
+		menuBestand.setOnAction(e -> {
+			menuBestand.show();
+		});
+
+
+		MenuItem nieuw = new MenuItem("_Niew  CTRL + N");
 		menuBestand.getItems().add(nieuw);
 		;
 
