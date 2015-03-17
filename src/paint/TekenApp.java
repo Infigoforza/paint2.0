@@ -34,7 +34,7 @@ public class TekenApp extends Application {
 		Scene scene = new Scene(root, 440, 350);
 		MenuBar menuBar = new MenuBar();
 		VBox topPosition = new VBox();
-
+		Stage instellingenD = new Stage();
 		tc = new TekenCanvas(430, 300);
 		bp.setPrefSize(440, 125);
 
@@ -80,7 +80,7 @@ public class TekenApp extends Application {
 		
 		// Menu dialoog tonen
 		instellingen.setOnAction(e -> {
-			InstellingenDialoog dialog = new InstellingenDialoog(primaryStage, 200, 200);
+			InstellingenDialoog dialog = new InstellingenDialoog(instellingenD, 200, 200);
 		});
 		menuOpties.getItems().add(instellingen);
 
